@@ -1,0 +1,1296 @@
+---
+openapi: 3.0.1
+info:
+  title: B2XB2BHelperApi
+  version: '1.0'
+servers:
+- url: "/B2XB2BHelperApiQAS"
+paths:
+  "/api/ErpCustomer/{customerNo}":
+    get:
+      tags:
+      - ErpCustomer
+      parameters:
+      - name: customerNo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZCUSTOMER"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZCUSTOMER"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZCUSTOMER"
+  "/api/ErpCustomerContracts/{customer}":
+    get:
+      tags:
+      - ErpCustomerContracts
+      parameters:
+      - name: customer
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZCONTRACT"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZCONTRACT"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZCONTRACT"
+  "/api/ErpCustomerExlusions/{customer}":
+    get:
+      tags:
+      - ErpCustomerExlusions
+      parameters:
+      - name: customer
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  "/api/ErpCustomerLicenses/{customer}":
+    get:
+      tags:
+      - ErpCustomerLicenses
+      parameters:
+      - name: customer
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZLICENSES"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZLICENSES"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZLICENSES"
+  "/api/ErpFreeGoods/{customer}/{sku}":
+    get:
+      tags:
+      - ErpFreeGoods
+      parameters:
+      - name: customer
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: sku
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZFREEGOODS"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZFREEGOODS"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZFREEGOODS"
+  "/api/ErpInventory/{sku}":
+    get:
+      tags:
+      - ErpInventory
+      parameters:
+      - name: sku
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZINVENTORY"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZINVENTORY"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZINVENTORY"
+  "/api/ErpInventoryHipo/{sku}":
+    get:
+      tags:
+      - ErpInventoryHipo
+      parameters:
+      - name: sku
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+  "/api/ErpOfflineManager":
+    get:
+      tags:
+      - ErpOfflineManager
+      responses:
+        '200':
+          description: Success
+  "/api/ErpOfflineManager/offline":
+    post:
+      tags:
+      - ErpOfflineManager
+      responses:
+        '200':
+          description: Success
+  "/api/ErpOfflineManager/online":
+    post:
+      tags:
+      - ErpOfflineManager
+      responses:
+        '200':
+          description: Success
+  "/api/ErpOrderConfirmation/{orderNo}":
+    get:
+      tags:
+      - ErpOrderConfirmation
+      parameters:
+      - name: orderNo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+  "/api/ErpOrderExport":
+    post:
+      tags:
+      - ErpOrderExport
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ErpOrderDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/ErpOrderDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/ErpOrderDto"
+      responses:
+        '200':
+          description: Success
+  "/api/ErpOrders/Status/{orderNo}":
+    get:
+      tags:
+      - ErpOrders
+      parameters:
+      - name: orderNo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ZORDER_STATUS"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ZORDER_STATUS"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ZORDER_STATUS"
+  "/api/ErpPaymentExport":
+    post:
+      tags:
+      - ErpPaymentExport
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ErpPaymentDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/ErpPaymentDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/ErpPaymentDto"
+      responses:
+        '200':
+          description: Success
+  "/api/ErpPricing/{sku}/{customer}":
+    get:
+      tags:
+      - ErpPricing
+      parameters:
+      - name: sku
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: customer
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZPRICING"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZPRICING"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZPRICING"
+  "/api/ErpPricing/online/{sku}/{customer}":
+    get:
+      tags:
+      - ErpPricing
+      parameters:
+      - name: sku
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: customer
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZPRICING"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZPRICING"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZPRICING"
+  "/api/ErpPricingHipo/{org}/{sku}/{customer}":
+    get:
+      tags:
+      - ErpPricingHipo
+      parameters:
+      - name: org
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: sku
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: customer
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+  "/api/ErpPricingHipo/online/{org}/{sku}/{customer}":
+    get:
+      tags:
+      - ErpPricingHipo
+      parameters:
+      - name: org
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: sku
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: customer
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+  "/api/ErpReports/Aging/{customer}":
+    get:
+      tags:
+      - ErpReports
+      parameters:
+      - name: customer
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZSTATEMENT"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZSTATEMENT"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZSTATEMENT"
+  "/api/ErpReports/Invoices/{invoiceId}":
+    get:
+      tags:
+      - ErpReports
+      parameters:
+      - name: invoiceId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZINVOICED"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZINVOICED"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZINVOICED"
+  "/api/ErpReports/EmailInvoice":
+    post:
+      tags:
+      - ErpReports
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/EmailInvoiceRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/EmailInvoiceRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/EmailInvoiceRequest"
+      responses:
+        '200':
+          description: Success
+  "/api/ErpReports/Invoices":
+    post:
+      tags:
+      - ErpReports
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/InvoiceReportRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/InvoiceReportRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/InvoiceReportRequest"
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZINVOICED"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZINVOICED"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZINVOICED"
+  "/api/ErpReports/SalesTax":
+    post:
+      tags:
+      - ErpReports
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/StandardReportRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/StandardReportRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/StandardReportRequest"
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZIVU"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZIVU"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZIVU"
+  "/api/ErpReports/Payments":
+    post:
+      tags:
+      - ErpReports
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/StandardReportRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/StandardReportRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/StandardReportRequest"
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZPAYMENT_REP"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZPAYMENT_REP"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ZPAYMENT_REP"
+  "/api/ErpReturnExport":
+    post:
+      tags:
+      - ErpReturnExport
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ErpReturnDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/ErpReturnDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/ErpReturnDto"
+      responses:
+        '200':
+          description: Success
+components:
+  schemas:
+    EmailInvoiceRequest:
+      required:
+      - emailAccount
+      - invoiceNumber
+      type: object
+      properties:
+        invoiceNumber:
+          type: string
+        emailAccount:
+          type: string
+      additionalProperties: false
+    ErpOrderDto:
+      type: object
+      properties:
+        sapMandt:
+          type: string
+          nullable: true
+        documentType:
+          type: string
+          nullable: true
+        documentNumber:
+          type: string
+          nullable: true
+        customer:
+          type: string
+          nullable: true
+        customerName:
+          type: string
+          nullable: true
+        orderDate:
+          type: string
+          nullable: true
+        orderTime:
+          type: string
+          nullable: true
+        poNumber:
+          type: string
+          nullable: true
+        notes:
+          type: string
+          nullable: true
+        sapProcess:
+          type: string
+          nullable: true
+        lines:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ErpOrderLineDto"
+          nullable: true
+      additionalProperties: false
+    ErpOrderLineDto:
+      type: object
+      properties:
+        sapMandt:
+          type: string
+          nullable: true
+        documentType:
+          type: string
+          nullable: true
+        documentNumber:
+          type: string
+          nullable: true
+        productNo:
+          type: string
+          nullable: true
+        sapCharg:
+          type: string
+          nullable: true
+        salesUnit:
+          type: string
+          nullable: true
+        quantity:
+          type: number
+          format: double
+        sapSchl:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ErpPaymentDetail:
+      type: object
+      properties:
+        receiptNumber:
+          type: string
+          nullable: true
+        customerNumber:
+          type: string
+          nullable: true
+        paymentMethod:
+          type: string
+          nullable: true
+        bankReference:
+          type: string
+          nullable: true
+        documentReference:
+          type: string
+          nullable: true
+        totalPayment:
+          type: number
+          format: double
+      additionalProperties: false
+    ErpPaymentDto:
+      type: object
+      properties:
+        header:
+          "$ref": "#/components/schemas/ErpPaymentHeader"
+        lines:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ErpPaymentLine"
+          nullable: true
+        details:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ErpPaymentDetail"
+          nullable: true
+      additionalProperties: false
+    ErpPaymentHeader:
+      type: object
+      properties:
+        receiptNumber:
+          type: string
+          nullable: true
+        paymentMethod:
+          type: string
+          nullable: true
+        customerNumber:
+          type: string
+          nullable: true
+        paymentDate:
+          type: string
+          nullable: true
+        prePayment:
+          type: string
+          nullable: true
+        totalPayment:
+          type: number
+          format: double
+      additionalProperties: false
+    ErpPaymentLine:
+      type: object
+      properties:
+        receiptNumber:
+          type: string
+          nullable: true
+        customerNumber:
+          type: string
+          nullable: true
+        invoiceNumber:
+          type: string
+          nullable: true
+        documentType:
+          type: string
+          nullable: true
+        totalDiscount:
+          type: number
+          format: double
+        totalPayment:
+          type: number
+          format: double
+        totalFee:
+          type: number
+          format: double
+        netInvoice:
+          type: number
+          format: double
+          readOnly: true
+      additionalProperties: false
+    ErpReturnDto:
+      type: object
+      properties:
+        sapMandt:
+          type: string
+          nullable: true
+        creditReason:
+          type: string
+          nullable: true
+        creditNumber:
+          type: string
+          nullable: true
+        creditReference:
+          type: string
+          nullable: true
+        customer:
+          type: string
+          nullable: true
+        customerName:
+          type: string
+          nullable: true
+        creditDate:
+          type: string
+          nullable: true
+        creditTime:
+          type: string
+          nullable: true
+        notes:
+          type: string
+          nullable: true
+        sapProcess:
+          type: string
+          nullable: true
+        lines:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ErpReturnLineDto"
+          nullable: true
+      additionalProperties: false
+    ErpReturnLineDto:
+      type: object
+      properties:
+        sapMandt:
+          type: string
+          nullable: true
+        creditReason:
+          type: string
+          nullable: true
+        creditNumber:
+          type: string
+          nullable: true
+        productNo:
+          type: string
+          nullable: true
+        batchNumber:
+          type: string
+          nullable: true
+        salesUnit:
+          type: string
+          nullable: true
+        quantity:
+          type: number
+          format: double
+      additionalProperties: false
+    InvoiceReportRequest:
+      type: object
+      properties:
+        customerNo:
+          type: string
+          nullable: true
+        sku:
+          type: string
+          nullable: true
+        manufacturer:
+          type: string
+          nullable: true
+        dateFrom:
+          type: string
+          nullable: true
+        dateTo:
+          type: string
+          nullable: true
+      additionalProperties: false
+    StandardReportRequest:
+      type: object
+      properties:
+        customerNo:
+          type: string
+          nullable: true
+        dateFrom:
+          type: string
+          nullable: true
+        dateTo:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ZCONTRACT:
+      type: object
+      properties:
+        werks:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ZCUSTOMER:
+      type: object
+      properties:
+        customeR_NO:
+          type: string
+          nullable: true
+        compid:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        addresS1:
+          type: string
+          nullable: true
+        addresS2:
+          type: string
+          nullable: true
+        addresS3:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        state:
+          type: string
+          nullable: true
+        zip:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        lastpaymentdate:
+          type: string
+          nullable: true
+        lastpaymentamount:
+          type: number
+          format: double
+        knrze:
+          type: string
+          nullable: true
+        creditlimit:
+          type: number
+          format: double
+        credithold:
+          type: string
+          nullable: true
+        contactname:
+          type: string
+          nullable: true
+        contactnamE2:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        poreq:
+          type: string
+          nullable: true
+        outcontract:
+          type: string
+          nullable: true
+        rating:
+          type: string
+          nullable: true
+        custgroup:
+          type: string
+          nullable: true
+        pricelevel:
+          type: string
+          nullable: true
+        paymentterm:
+          type: string
+          nullable: true
+        usesalestax:
+          type: string
+          nullable: true
+        usesalestaxmun:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        klprz:
+          type: number
+          format: double
+        braN1:
+          type: string
+          nullable: true
+        katR1:
+          type: string
+          nullable: true
+        katR2:
+          type: string
+          nullable: true
+        katR3:
+          type: string
+          nullable: true
+        katR4:
+          type: string
+          nullable: true
+        katR5:
+          type: string
+          nullable: true
+        katR6:
+          type: string
+          nullable: true
+        katR7:
+          type: string
+          nullable: true
+        katR8:
+          type: string
+          nullable: true
+        katR9:
+          type: string
+          nullable: true
+        katR10:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ZFREEGOODS:
+      type: object
+      properties:
+        matnr:
+          type: string
+          nullable: true
+        mtart:
+          type: string
+          nullable: true
+        knrmat:
+          type: string
+          nullable: true
+        knrmm:
+          type: number
+          format: double
+        knrzm:
+          type: number
+          format: double
+        knrme:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ZINVENTORY:
+      type: object
+      properties:
+        compid:
+          type: string
+          nullable: true
+        producT_NO:
+          type: string
+          nullable: true
+        stock:
+          type: number
+          format: double
+        invstatus:
+          type: string
+          nullable: true
+        whsid:
+          type: string
+          nullable: true
+        meins:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ZINVOICED:
+      type: object
+      properties:
+        ihrez:
+          type: string
+          nullable: true
+        vbeln:
+          type: string
+          nullable: true
+        fkdat:
+          type: string
+          nullable: true
+        kunrg:
+          type: string
+          nullable: true
+        kunag:
+          type: string
+          nullable: true
+        namE1:
+          type: string
+          nullable: true
+        netwr:
+          type: number
+          format: double
+        vbtyp:
+          type: string
+          nullable: true
+        matnr:
+          type: string
+          nullable: true
+        maktx:
+          type: string
+          nullable: true
+        charg:
+          type: string
+          nullable: true
+        fklmg:
+          type: integer
+          format: int32
+        vrkme:
+          type: string
+          nullable: true
+        skfbp:
+          type: number
+          format: double
+        vgtyp:
+          type: string
+          nullable: true
+        eaN11:
+          type: string
+          nullable: true
+        mfrnr:
+          type: string
+          nullable: true
+        namem:
+          type: string
+          nullable: true
+        extwg:
+          type: string
+          nullable: true
+        ewbez:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ZIVU:
+      type: object
+      properties:
+        vbeln:
+          type: string
+          nullable: true
+        fkdat:
+          type: string
+          nullable: true
+        kunrg:
+          type: string
+          nullable: true
+        kunag:
+          type: string
+          nullable: true
+        namE1:
+          type: string
+          nullable: true
+        netwr:
+          type: number
+          format: double
+        kwere:
+          type: number
+          format: double
+        kwerm:
+          type: number
+          format: double
+      additionalProperties: false
+    ZLICENSES:
+      type: object
+      properties:
+        kunnr:
+          type: string
+          nullable: true
+        ztype:
+          type: string
+          nullable: true
+        divcode:
+          type: string
+          nullable: true
+        zlic:
+          type: string
+          nullable: true
+        endda:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ZORDER_STATUS:
+      type: object
+      properties:
+        ihrez:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ZPAYMENT_REP:
+      type: object
+      properties:
+        kunnr:
+          type: string
+          nullable: true
+        augdt:
+          type: string
+          nullable: true
+        zuonr:
+          type: string
+          nullable: true
+        dmbtr:
+          type: number
+          format: double
+        sknto:
+          type: number
+          format: double
+        skntl:
+          type: number
+          format: double
+        bankc:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ZPRICING:
+      type: object
+      properties:
+        vkorg:
+          type: string
+          nullable: true
+        kschl:
+          type: string
+          nullable: true
+        matnr:
+          type: string
+          nullable: true
+        charg:
+          type: string
+          nullable: true
+        vfdat:
+          type: string
+          nullable: true
+        kbety:
+          type: string
+          nullable: true
+        kstbm:
+          type: number
+          format: double
+        kbetr:
+          type: number
+          format: double
+        kbivu:
+          type: number
+          format: double
+        werks:
+          type: string
+          nullable: true
+        zterm:
+          type: string
+          nullable: true
+        zbD1T:
+          type: number
+          format: double
+      additionalProperties: false
+    ZSTATEMENT:
+      type: object
+      properties:
+        kunnr:
+          type: string
+          nullable: true
+        werks:
+          type: string
+          nullable: true
+        budat:
+          type: string
+          nullable: true
+        cpdat:
+          type: string
+          nullable: true
+        codet:
+          type: string
+          nullable: true
+        zuonr:
+          type: string
+          nullable: true
+        xblnr:
+          type: string
+          nullable: true
+        sgtxt:
+          type: string
+          nullable: true
+        zterm:
+          type: string
+          nullable: true
+        dmbtr:
+          type: number
+          format: double
+        wrbtr:
+          type: number
+          format: double
+        ivust:
+          type: number
+          format: double
+        ivumu:
+          type: number
+          format: double
+        zprZ1:
+          type: number
+          format: double
+        zprZ2:
+          type: number
+          format: double
+        bdiff:
+          type: number
+          format: double
+        fee:
+          type: number
+          format: double
+        zcurrent:
+          type: number
+          format: double
+        dmB3160:
+          type: number
+          format: double
+        dmB6190:
+          type: number
+          format: double
+        morE91:
+          type: number
+          format: double
+        totagain:
+          type: number
+          format: double
+        totvenc:
+          type: number
+          format: double
+      additionalProperties: false
